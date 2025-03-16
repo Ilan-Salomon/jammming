@@ -1,0 +1,60 @@
+.tracklist {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    background-color: #121212;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .track {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .track:hover {
+    background-color: #282828;
+    transform: translateY(-3px);
+  }
+  
+  .trackInfo {
+    display: flex;
+    flex-direction: column;
+    color: white;
+  }
+  
+  .trackInfo h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .trackInfo p {
+    margin: 3px 0 0;
+    font-size: 14px;
+    color: #b3b3b3;
+  }
+  
+  .playButton {
+    background-color: #1db954;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .playButton:hover {
+    background-color: #17a74b;
+  }
+  
