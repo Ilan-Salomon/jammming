@@ -142,7 +142,7 @@ function App() {
           </div>
         </main>
   
-        <a className={styles.appLink}>© Jammming all rights reserved</a>
+        <p className={styles.appLink}>© Jammming all rights reserved</p>
       </header>
     </div>
   );
