@@ -173,7 +173,8 @@ const getAccessToken = async (authCode) => {
     if (authCode && !accessToken) {
       getAccessToken(authCode);
     }
-  }, []);
+  }, [accessToken]); 
+  
 
   return (
     <form className={styles.searchForm} onSubmit={handleSubmit}>
