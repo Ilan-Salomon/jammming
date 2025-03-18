@@ -49,14 +49,19 @@
   }
   
   .removeButton {
-    background-color: #ff3b3b;
-    border: none;
+    background-color: transparent;
+    border: 2px solid white;
     color: white;
-    padding: 8px 12px;
-    font-size: 14px;
-    border-radius: 5px;
+    font-size: 1.6rem;
+    padding: 10px 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    width: 36px;
+    margin-left: auto;
   }
   
   .removeButton:hover {
@@ -67,5 +72,81 @@
     text-align: center;
     color: #b3b3b3;
     font-size: 1rem;
+  }
+  
+
+  .searchForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px auto;
+    max-width: 500px;
+    flex-direction: column; /* Adjust for better mobile display */
+  }
+  
+  .searchInput {
+    width: 100%;
+    padding: 10px 15px;
+    border: 2px solid #4c00bd;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+  }
+  
+  .searchInput:focus {
+    border-color: #d7d7d7;
+    box-shadow: 0 0 5px rgba(140, 140, 140, 0.5);
+  }
+  
+  .searchButton {
+    padding: 10px 20px;
+    background-color: #1b1b1b;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .searchButton:hover {
+    background-color: #3800b1;
+  }
+  
+  .playlistContainer {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .playlistList {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .playlistItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .removeButton {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .removeButton:hover {
+    background-color: #ff1a1a;
   }
   

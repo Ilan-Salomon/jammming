@@ -6,7 +6,6 @@ import { Tracklist } from "./Tracklist";
 import Playlist from "./Playlist";
 
 
-
 async function getSpotifyToken() {
   const clientId = "1674121457ca4bba8f4ab14eba675207"; // Replace with your Client ID
   const clientSecret = "a2abb117ff3c4541b2c9323929831dd2"; // Replace with your Client Secret
@@ -49,14 +48,11 @@ function App() {
     }
   };
   
-
-
   const removeTrackFromPlaylist = (track) => {
     setPlaylistTracks(playlistTracks.filter((t) => t.id !== track.id));
   };
   
-
-
+//this gets the data from the search word to make a tracklist
   async function GetArtistData(input) {
     try {
       const accessToken = await getSpotifyToken(); // Get token first
@@ -78,20 +74,24 @@ function App() {
     }
   }
 
+
+  
+
   // ✅ Extract track data when tracks update
   useEffect(() => {
     if (tracks && tracks.tracks?.items) {
       const formattedTracks = tracks.tracks.items.map((item) => ({
-        id: item.id, // ✅ Add track ID to prevent duplicates
+        id: item.id, 
         albumName: item.album?.name || "Unknown Album",
         trackName: item.name || "Unknown Track",
         firstArtist: item.artists?.[0]?.name || "Unknown Artist",
+        uri: item.uri // ✅ Include Spotify Track URI
       }));
   
       setExtractedData(formattedTracks);
-      console.log(formattedTracks); // Debugging
     }
   }, [tracks]);
+  
   
 
   const addSearchWord = (searchWord) => {
