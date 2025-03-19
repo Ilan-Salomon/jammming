@@ -4,7 +4,8 @@ import styles from "./Playlist.module.css";
 const clientId = "1674121457ca4bba8f4ab14eba675207";  
 const clientSecret = "a2abb117ff3c4541b2c9323929831dd2";  
 const redirectUri = "https://cozy-puppy-ca1913.netlify.app/callback";  
-const scopes = "playlist-modify-private playlist-modify-public";
+const scopes = "playlist-modify-private playlist-modify-public user-read-private";
+
 
 const Playlist = ({ playlistTracks, onRemoveTrack, props }) => {
   const [text, setText] = useState("");
@@ -61,7 +62,8 @@ const getAccessToken = async (authCode) => {
     });
 
     const data = await response.json();
-    console.log("Access Token before fetching user ID:", data.accessToken);
+    console.log("Access Token before fetching user ID:", data.access_token);
+
 
 
     if (data.access_token) {
@@ -84,19 +86,27 @@ const getAccessToken = async (authCode) => {
   // 🔹 Fetch User ID
   const getUserId = async () => {
     if (!accessToken) return null;
-
+  
     try {
       const response = await fetch("https://api.spotify.com/v1/me", {
         headers: { "Authorization": `Bearer ${accessToken}` }
       });
-
+  
       const data = await response.json();
+      console.log("User ID response:", data); // 🔹 Debugging
+      if (response.status === 403) {
+        console.error("Spotify API returned 403 Forbidden:", data);
+        alert("Spotify API returned 403 Forbidden. Try logging in again.");
+        return null;
+      }
+  
       return data.id || null;
     } catch (error) {
       console.error("Error fetching user ID:", error);
       return null;
     }
   };
+  
 
   const addTracksToPlaylist = async (playlistId) => {
     if (!accessToken) {
