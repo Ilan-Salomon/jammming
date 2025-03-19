@@ -3,7 +3,7 @@ import styles from "./Playlist.module.css";
 
 const clientId = "1674121457ca4bba8f4ab14eba675207";  
 const clientSecret = "a2abb117ff3c4541b2c9323929831dd2";  
-const redirectUri = "https://https://cozy-puppy-ca1913.netlify.app//callback";  
+const redirectUri = "https://https://cozy-puppy-ca1913.netlify.app/callback";  
 const scopes = "playlist-modify-private playlist-modify-public";
 
 const Playlist = ({ playlistTracks, onRemoveTrack, props }) => {
